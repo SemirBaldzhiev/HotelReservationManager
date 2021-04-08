@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\HotelReservationsManager\\HotelReservationsManager\\HotelReservationsManager.csproj": {}
+    "C:\\Users\\User\\Desktop\\HotelReservationManagerSystem\\HotelReservationManager\\HotelReservationsManager\\HotelReservationsManager.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\HotelReservationsManager\\HotelReservationsManager\\HotelReservationsManager.csproj": {
+    "C:\\Users\\User\\Desktop\\HotelReservationManagerSystem\\HotelReservationManager\\HotelReservationsManager\\HotelReservationsManager.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\HotelReservationsManager\\HotelReservationsManager\\HotelReservationsManager.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Desktop\\HotelReservationManagerSystem\\HotelReservationManager\\HotelReservationsManager\\HotelReservationsManager.csproj",
         "projectName": "HotelReservationsManager",
-        "projectPath": "C:\\Users\\User\\source\\repos\\HotelReservationsManager\\HotelReservationsManager\\HotelReservationsManager.csproj",
+        "projectPath": "C:\\Users\\User\\Desktop\\HotelReservationManagerSystem\\HotelReservationManager\\HotelReservationsManager\\HotelReservationsManager.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\HotelReservationsManager\\HotelReservationsManager\\obj\\",
+        "outputPath": "C:\\Users\\User\\Desktop\\HotelReservationManagerSystem\\HotelReservationManager\\HotelReservationsManager\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
