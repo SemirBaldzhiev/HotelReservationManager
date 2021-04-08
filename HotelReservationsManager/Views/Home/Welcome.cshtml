@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Welcome Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p>Hello, <b>@ViewBag.Name</b>. Welcome to our Hotel Reservations Manager</p>
+    }
+
+</div>
