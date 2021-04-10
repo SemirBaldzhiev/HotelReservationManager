@@ -4,11 +4,15 @@
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<body class="bg-image"
+style="background-image: url('/image/gif1.gif'); background-size: cover">
 <h1>Create</h1>
 
+<video autoplay muted loop id="myVideo" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; top:7%">
+    <source src="~/image/mov_bbb.mp4" type="video/mp4">
+</video>
+
 <h4>Client</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -48,6 +52,7 @@
 <div>
     <a asp-action="Index">Back to List</a>
 </div>
+</body>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

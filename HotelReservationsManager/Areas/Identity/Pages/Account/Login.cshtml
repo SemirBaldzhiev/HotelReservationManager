@@ -14,26 +14,30 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js'></script>
 </head>
 
+<video autoplay muted loop id="myVideo" style="position: fixed; right: 0; bottom: 0; min-width: 100%; min-height: 100%; top:7%">
+    <source src="~/image/yt1s.com - Orange Bokeh Particles No Copyright Copyright Free Video Motion Graphics Background Video_1080p.mp4" type="video/mp4">
+</video>
+
 <h1>@ViewData["Title"]</h1>
-<div class="row" class="login">
+<div class="row " class="login">
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <hr />
+                
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Input.Email"></label>
+                    <label class="h5 text-white" asp-for="Input.Email"></label>
                     <input asp-for="Input.Email" class="form-control" />
                     <span asp-validation-for="Input.Email" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Input.Password"></label>
+                    <label class="h5 text-white" asp-for="Input.Password"></label>
                     <input asp-for="Input.Password" class="form-control" />
                     <span asp-validation-for="Input.Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
+                        <label class="h6 text-white" asp-for="Input.RememberMe">
                             <input asp-for="Input.RememberMe" />
                             @Html.DisplayNameFor(m => m.Input.RememberMe)
                         </label>

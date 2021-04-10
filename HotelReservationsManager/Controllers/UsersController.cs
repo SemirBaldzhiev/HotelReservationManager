@@ -116,17 +116,6 @@ namespace HotelReservationsManager.Controllers
             };
 
             return View(model);
-            /*if (id == null)
-            {
-                return NotFound();
-            }
-
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }*/
-            //return View(user);
         }
 
         // POST: Users/Edit/5
@@ -134,7 +123,7 @@ namespace HotelReservationsManager.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(EditUserViewModel model/*[Bind("Id,FirstName,MiddleName,LastName,TIN,HiringDate,IsAdmin")] User user*/)
+        public async Task<IActionResult> Edit(EditUserViewModel model)
         {
             var user = await userManager.FindByIdAsync(model.Id);
 
@@ -165,32 +154,7 @@ namespace HotelReservationsManager.Controllers
                 {
                     ModelState.AddModelError("", error.Description);
                 }
-                /*if (id != user.Id)
-                {
-                    return NotFound();
-                }
-
-                if (ModelState.IsValid)
-                {
-                    try
-                    {
-
-                        _context.Users.Update(user);
-                        await _context.SaveChangesAsync();
-                    }
-                    catch (DbUpdateConcurrencyException)
-                    {
-                        if (!UserExists(user.Id))
-                        {
-                            return NotFound();
-                        }
-                        else
-                        {
-                            throw;
-                        }
-                    }
-                    return RedirectToAction(nameof(Index));
-                }*/
+                
                 return View(model);
             }
         }

@@ -5,25 +5,24 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Rooms</h1>
 @if (User.IsInRole("Admin"))
 {
     <p>
-        <a asp-action="Create">Create New</a>
+        <a type="button" class="btn btn-outline-dark" asp-action="Create">Create New</a>
     </p>
 }
 
-@using (Html.BeginForm("Index", "Rooms", FormMethod.Get))
-{
-    <p>
-        Type: @Html.TextBox("RoomType")
-        Room Number: @Html.TextBox("RoomNumber")
-        <input type="submit" value="Filter" />
-    </p>
-}
+<div class="input-group mb-3">
+    <form class="d-flex" asp-action="Index" method="get">
+        <input class="rounded mr-2" type="text" name="RoomType" placeholder="Type" aria-label="Search">
+        <input class="rounded mr-2" type="number" name="RoomNumber" placeholder="Room Number" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
 
 <table class="table">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Capacity)
@@ -47,7 +46,7 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
+   <tbody>
         @foreach (var item in Model)
         {
             <tr>
@@ -72,15 +71,16 @@
 
                 @if (User.IsInRole("Admin"))
                 {
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
-                        @if (!item.InUse)
-                        {
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        }
+            <td>
+                <a type="button" class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                <a type="button" class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                @if (!item.InUse)
+                {
+                    <a type="button" class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
 
-                    </td>
+                }
+
+            </td>
                 }
 
             </tr>

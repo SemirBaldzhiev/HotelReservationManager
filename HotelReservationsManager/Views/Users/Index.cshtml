@@ -5,17 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h1>Users</h1>
-@using (Html.BeginForm("Index", "Users", FormMethod.Get))
-{
-<p>
-    First Name: @Html.TextBox("FirstName")
-    Last Name: @Html.TextBox("LastName")
-    TIN: @Html.TextBox("TIN")
-    <input type="submit" value="Filter" />
-</p>
-}
+
+<div class="input-group mb-3">
+    <form class="d-flex" asp-action="Index" method="get">
+        <input class="rounded mr-2" type="text" name="FirstName" placeholder="FirstName" aria-label="Search">
+        <input class="rounded mr-2" type="text" name="LastName" placeholder="LastName" aria-label="Search">
+        <input class="rounded mr-2" type="text" name="TIN" placeholder="TIN" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+</div>
 <table class="table">
-    <thead>
+    <thead class="table-dark">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
@@ -76,12 +76,12 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a type="button" class="btn btn-outline-warning" asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                        <a type="button" class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
 
                         @if (item.Reservations.Count == 0)
                         {
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a type="button" class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                         }
 
                     </td>
