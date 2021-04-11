@@ -59,7 +59,7 @@ namespace HotelReservationsManager.Controllers
         // GET: Reservations/Create
         public IActionResult Create()
         {
-            ViewData["ReservedRoomId"] = new SelectList(_context.Rooms, "Id", "Type");
+            ViewData["ReservedRoomId"] = new SelectList(_context.Rooms.Where(r => !r.InUse).ToList(), "Id", "Type");
             ViewData["Users"] = new SelectList(_context.Users, "Id", "FirstName");
             ViewBag.Clients = new MultiSelectList(_context.Clients, "Id", "FirstName");
             return View();
