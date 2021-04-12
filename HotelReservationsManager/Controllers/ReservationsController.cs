@@ -72,12 +72,21 @@ namespace HotelReservationsManager.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ReservedRoomId,UserId,DateSet,DateSetOff,HaveBreakfast,AllInclusive,TotalPrice")] Reservation reservation, int[] clients)
         {
+            ViewData["ReservedRoomId"] = new SelectList(_context.Rooms, "Id", "Type", reservation.ReservedRoomId);
+            ViewData["Users"] = new SelectList(_context.Users, "Id", "FirstName", reservation.UserId);
+            ViewBag.Clients = new MultiSelectList(_context.Clients, "Id", "FirstName");
+
+            if (reservation.DateSetOff < reservation.DateSet)
+            {
+                ModelState.AddModelError(string.Empty,"DateSetOff should be after DateSet");
+                return View(reservation); 
+            }
+
 
             if (ModelState.IsValid)
             {
                 if (clients != null)
                 {
-                    
 
                     foreach (var clientId in clients)
                     {
@@ -118,6 +127,8 @@ namespace HotelReservationsManager.Controllers
                     reservation.TotalPrice = totalPrice;
                 }
 
+
+
                 _context.Add(reservation);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -125,9 +136,7 @@ namespace HotelReservationsManager.Controllers
 
             
 
-            ViewData["ReservedRoomId"] = new SelectList(_context.Rooms, "Id", "Type", reservation.ReservedRoomId);
-            ViewData["Users"] = new SelectList(_context.Users, "Id", "FirstName", reservation.UserId);
-            ViewBag.Clients = new MultiSelectList(_context.Clients, "Id", "FirstName");
+           
             return View(reservation);
         }
 
